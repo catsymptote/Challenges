@@ -8,5 +8,7 @@
 # generated directories
 bin/
 obj/
+*.o
+*.exe
 
 # End of https://www.gitignore.io/api/codeblocks
