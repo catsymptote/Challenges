@@ -2,11 +2,11 @@
 #include <vector>
 
 
-bool is_prime(int num)
+bool is_prime(long long num)
 {
     // Check if prime.
     bool prime = true;
-    for(int i=2; i < num; i++)
+    for(long long i=2; i < num; i++)
         if(num%i == 0)
         {
             prime = false;
@@ -16,18 +16,23 @@ bool is_prime(int num)
 }
 
 
-std::vector<int> find_primes(int num)
+std::vector<long long> find_primes(long long num)
 {
     // List of primes.
-    std::vector<int> primes;
+    std::vector<long long> primes;
 
     // Add -1 if number is negative.
+    // Can be replaced with absolute values.
     if(num < 0)
+    {
         primes.push_back(-1);
+        num *= -1;
+    }
+
 
     // Looping through potential primes.
-    //for(int i=2; i < num; i++)
-    int i = 2;
+    //for(long long i=2; i < num; i++)
+    long long i = 2;
     while (i <= num)
     {
         if(num%i == 0)
@@ -47,11 +52,11 @@ std::vector<int> find_primes(int num)
 
 int main()
 {
-    //int num = 600851475143;
-    int num = 13195;
-    //int num = 16;
-    std::vector<int> primes = find_primes(num);
-    for(int i=0; i < primes.size(); i++)
+    long long num = 600851475143;
+    //long long num = 13195;
+    //long long num = 16;
+    std::vector<long long> primes = find_primes(num);
+    for(long long i=0; i < primes.size(); i++)
     {
         std::cout << primes.at(i);
         if (i < primes.size() -1)
