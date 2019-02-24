@@ -3,13 +3,13 @@
 
 
 // Check if input number is a prime.
-bool is_prime(long long num)
+bool is_prime(int num)
 {
     // Check if prime.
     bool prime = true;
 
     // Loop through all numbers in the range <1, num>
-    for(long long i=2; i < num; i++)
+    for(int i=2; i < num/2+1; i++)
         // If divisible, num is not a prime.
         if(num%i == 0)
             prime = false;
@@ -18,10 +18,10 @@ bool is_prime(long long num)
 
 
 // Find all prime factors of a number.
-long long find_prime_by_index(long long prime_index)
+int find_prime_by_index(int prime_index)
 {
-    long long index = 0;
-    long long number = 1;
+    int index = 0;
+    int number = 1;
     while(prime_index != index)
     {
         number++;
