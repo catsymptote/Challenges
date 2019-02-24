@@ -2,20 +2,22 @@
 #include <vector>
 
 
+// Check if input number is a prime.
 bool is_prime(long long num)
 {
     // Check if prime.
     bool prime = true;
-    for(long long i=2; i < num; i++)
-        if(num%i == 0)
-        {
-            prime = false;
-        }
 
+    // Loop through all numbers in the range <1, num>
+    for(long long i=2; i < num; i++)
+        // If divisible, num is not a prime.
+        if(num%i == 0)
+            prime = false;
     return prime;
 }
 
 
+// Find all prime factors of a number.
 std::vector<long long> find_primes(long long num)
 {
     // List of primes.
@@ -29,22 +31,29 @@ std::vector<long long> find_primes(long long num)
         num *= -1;
     }
 
-
     // Looping through potential primes.
     //for(long long i=2; i < num; i++)
     long long i = 2;
+    long long i_min = 2;
     while (i <= num)
     {
+        // If num is divisible by i.
         if(num%i == 0)
         {
+            // And num is a prime.
             if(is_prime(i))
             {
+                // Add prime factor and reduce num.
                 primes.push_back(i);
                 num /= i;
-                i = 1;
+                i = i_min -1;
             }
         }
         i++;
+
+        // Make sure you skip the smaller, unnecessary primes.
+        if (i_min < i)
+            i_min = i;
     }
     return primes;
 }
