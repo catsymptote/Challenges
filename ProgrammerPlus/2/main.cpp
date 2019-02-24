@@ -2,6 +2,9 @@
 #include <vector>
 
 
+// https://www.wolframalpha.com/input/?i=find+factors+of+600851475143
+
+
 // Check if input number is a prime.
 bool is_prime(long long num)
 {
